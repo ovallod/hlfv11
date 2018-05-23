@@ -1,0 +1,29 @@
+1/ creer le /sampleconfig  pvc
+
+   kubectl -f sampleconfig.yaml
+
+2/ Y copier les données du répertoire sampleconfig (car ds le container IBM, tout est déjà là !)
+
+
+  kubectl -f tools.yaml ( car il a le /sampleconfig monté ! )
+  kubectl cp sampleconfig utils:/
+
+
+=====================================
+Creation channel
+export CHANNEL_NAME=labchannel
+./create/create_channel.sh
+PEER_MSPID="Org1MSP" PEER_ADDRESS="blockchain-org1peer1:30110" MSP_CONFIGPATH="/shared/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp" create/join_channel.sh
+PEER_MSPID="Org2MSP" PEER_ADDRESS="blockchain-org2peer1:30210" MSP_CONFIGPATH="/shared/crypto-config/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp" create/join_channel.sh
+
+======================================
+Creation USer
+kubectl cp blockchain-org1peer1-86487bf7b9-2zxfr:/shared/crypto-config/peerOrganizations/org1.example.com/users/User1\@org1.example.com/msp/ .
+kubectl cp blockchain-org1peer1-86487bf7b9-2zxfr:/shared/crypto-config/peerOrganizations/org1.example.com/users/Admin\@org1.example.com/msp/ .
+
+
+=======================================
+Copie binaire
+
+kubectl cp blockchain-org1peer1-86487bf7b9-2zxfr:/usr/local/bin/peer .
+

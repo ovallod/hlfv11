@@ -1,0 +1,29 @@
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: sampleconfig-pv
+  labels:
+    name: sampleconfig
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/sampleconfig"
+
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: sampleconfig-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  selector:
+    matchLabels:
+      name: sampleconfig
