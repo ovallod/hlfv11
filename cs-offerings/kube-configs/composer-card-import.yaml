@@ -39,12 +39,12 @@ spec:
               }
           },
           "channels": {
-              "ovchannel": {
+              "channel1": {
                   "orderers": [
-                      "orderer.example.com"
+                      "orderer"
                   ],
                   "peers": {
-                      "peer0.org1.example.com": {
+                      "org1peer1": {
                           "endorsingPeer": true,
                           "chaincodeQuery": true,
                           "ledgerQuery": true,
@@ -57,28 +57,28 @@ spec:
               "Org1": {
                   "mspid": "Org1MSP",
                   "peers": [
-                      "peer0.org1.example.com"
+                      "org1peer1"
                   ],
                   "certificateAuthorities": [
-                      "ca.org1.example.com"
+                      "CA1"
                   ]
               }
           },
           "orderers": {
-              "orderer.example.com": {
+              "orderer": {
                   "url": "grpc://blockchain-orderer:31010"
               }
           },
           "peers": {
-              "peer0.org1.example.com": {
+              "org1peer1": {
                   "url": "grpc://blockchain-org1peer1:30110",
                   "eventUrl": "grpc://blockchain-org1peer1:30111"
               }
           },
           "certificateAuthorities": {
-              "ca.org1.example.com": {
+              "CA1": {
                   "url": "http://blockchain-ca:30054",
-                  "caName": "ca.org1.example.com"
+                  "caName": "CA1"
               }
           }
         }
