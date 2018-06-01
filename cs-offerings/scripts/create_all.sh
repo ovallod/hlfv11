@@ -13,6 +13,10 @@ echo "=> CREATE_ALL: Creating storage"
 create/create_storage.sh $@
 
 echo ""
+echo "=> CREATE_ALL: Creating shared folder based on SampleConfig"
+create/create_sampleconfig.sh
+
+echo ""
 echo "=> CREATE_ALL: Creating blockchain"
 create/create_blockchain.sh $@
 
