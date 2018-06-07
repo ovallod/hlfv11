@@ -39,7 +39,7 @@ spec:
               }
           },
           "channels": {
-              "%CHANNEL_NAME%": {
+              "channel1": {
                   "orderers": [
                       "orderer"
                   ],

@@ -39,8 +39,17 @@ if [ -z "${CHANNEL_NAME}" ]; then
 fi
 CHANNEL_NAME=${CHANNEL_NAME:-channel1}
 
+# Default to "localhost" if not defined
+if [ -z "${HLFV_IP_ADDRESS}" ]; then
+	echo "HLFV_IP_ADDRESS not defined. I will use \"localhost\"."
+	echo "I will wait 5 seconds before continuing."
+	sleep 5
+fi
+HLFV_IP_ADDRESS=${HLFV_IP_ADDRESS:-localhost}
+
 echo "Preparing yaml file for creating composer-card-import pod"
-sed -e "s/%CHANNEL_NAME%/${CHANNEL_NAME}/g" ${KUBECONFIG_FOLDER}/composer-card-import.yaml.base > ${KUBECONFIG_FOLDER}/composer-card-import.yaml
+sed -e "s/%CHANNEL_NAME%/${CHANNEL_NAME}/g" ${KUBECONFIG_FOLDER}/composer-card-import.yaml.base > ${KUBECONFIG_FOLDER}/composer-card-import.yaml.base2
+sed -e "s/%HLFV_IP_ADDRESS%/${HLFV_IP_ADDRESS}/g" ${KUBECONFIG_FOLDER}/composer-card-import.yaml.base2 > ${KUBECONFIG_FOLDER}/composer-card-import.yaml
 
 
 echo "Running: kubectl create -f ${KUBECONFIG_FOLDER}/composer-card-import.yaml"

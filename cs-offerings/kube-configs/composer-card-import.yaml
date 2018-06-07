@@ -66,18 +66,18 @@ spec:
           },
           "orderers": {
               "orderer": {
-                  "url": "grpc://blockchain-orderer:31010"
+                  "url": "grpc://159.122.178.146:31010"
               }
           },
           "peers": {
               "org1peer1": {
-                  "url": "grpc://blockchain-org1peer1:30110",
-                  "eventUrl": "grpc://blockchain-org1peer1:30111"
+                  "url": "grpc://159.122.178.146:30110",
+                  "eventUrl": "grpc://159.122.178.146:30111"
               }
           },
           "certificateAuthorities": {
               "CA1": {
-                  "url": "http://blockchain-ca:30054",
+                  "url": "http://159.122.178.146:30054",
                   "caName": "CA1"
               }
           }

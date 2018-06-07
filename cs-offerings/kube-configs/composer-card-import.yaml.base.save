@@ -66,18 +66,18 @@ spec:
           },
           "orderers": {
               "orderer": {
-                  "url": "grpc://%HLFV_IP_ADDRESS%:31010"
+                  "url": "grpc://blockchain-orderer:31010"
               }
           },
           "peers": {
               "org1peer1": {
-                  "url": "grpc://%HLFV_IP_ADDRESS%:30110",
-                  "eventUrl": "grpc://%HLFV_IP_ADDRESS%:30111"
+                  "url": "grpc://blockchain-org1peer1:30110",
+                  "eventUrl": "grpc://blockchain-org1peer1:30111"
               }
           },
           "certificateAuthorities": {
               "CA1": {
-                  "url": "http://%HLFV_IP_ADDRESS%:30054",
+                  "url": "http://blockchain-ca:30054",
                   "caName": "CA1"
               }
           }

@@ -20,7 +20,7 @@ spec:
         imagePullPolicy: Always
         env:
         - name: COMPOSER_CARD
-          value: ”PeerAdmin@hlfv1”
+          value: admin@marble1-network
         - name: COMPOSER_NAMESPACES
           value: never
         volumeMounts:
