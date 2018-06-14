@@ -38,7 +38,7 @@ function cleanEnvironment() {
         kubectl create -f ../cs-offerings/kube-configs/wipe_shared.yaml
 
         # Wait for the wipe shared pod to finish
-        while [ "$(kubectl get pod -a wipeshared | grep wipeshared | awk '{print $3}')" != "Completed" ]; do
+        while [ "$(kubectl get pod wipeshared | grep wipeshared | awk '{print $3}')" != "Completed" ]; do
             echo "Waiting for the shared folder to be erased..."
             sleep 1;
         done
@@ -52,7 +52,7 @@ function cleanEnvironment() {
 # getPods: Updates the pod status variables.
 #
 function getPodStatus() {
-    PODS=$(kubectl get pods -a)
+    PODS=$(kubectl get pods)
     PODS_RUNNING=$(echo "${PODS}" | grep Running | wc -l)
     PODS_COMPLETED=$(echo "${PODS}" | grep Completed | wc -l)
     PODS_ERROR=$(echo "${PODS}" | grep Error | wc -l)

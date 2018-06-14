@@ -72,7 +72,7 @@ else
 fi
 
 
-PEER_CONTAINER_NAME=$(kubectl get pods -a | grep ${PEER} | awk '{print $1}')
+PEER_CONTAINER_NAME=$(kubectl get pods | grep ${PEER} | awk '{print $1}')
 echo "Container for ${ORG}peer1 is ${PEER_CONTAINER_NAME}"
 ADMIN_PRIVATE_KEY=$(kubectl exec ${PEER_CONTAINER_NAME} cat /shared/crypto-config/peerOrganizations/${ORG}.example.com/users/Admin@${ORG}.example.com/msp/keystore/key.pem)
 ADMIN_PUBLIC_KEY=$(kubectl exec ${PEER_CONTAINER_NAME} cat /shared/crypto-config/peerOrganizations/${ORG}.example.com/users/Admin@${ORG}.example.com/msp/signcerts/Admin@${ORG}.example.com-cert.pem )

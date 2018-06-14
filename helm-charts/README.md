@@ -35,7 +35,7 @@ Use the following instructions to deploy each chart manually.
 
  > **Note:** Give the charts time to install before moving on to the next chart.
  >
- >Use the command `kubectl get pods -a` to check on the status of the containers and ensure that none complete with an `Error` status.  
+ >Use the command `kubectl get pods` to check on the status of the containers and ensure that none complete with an `Error` status.  
  >
  >Additional information can be obtained for a pod by using the command `kubectl logs <pod_name>`.
 
