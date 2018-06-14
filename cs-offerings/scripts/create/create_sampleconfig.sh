@@ -58,12 +58,12 @@ else
 	kubectl create -f ${KUBECONFIG_FOLDER}/tools.yaml
 
 	echo "Waiting to for tools deployment"
-	while [ `kubectl get pods | awk '/utils/ { print $3 }'` != "Running" ]; do
+	while [ "$(kubectl get pods | awk '/utils/ { print $3 }')" != "Running" ]; do
 		echo -n "."
 		sleep 2
 	done;
 	echo "Copying crypto files"
-	kubectl cp ${KUBECONFIG_FOLDER}/../../sampleconfig utils:/
+	kubectl cp ${KUBECONFIG_FOLDER}/../../sampleconfig utils:.
 
 	kubectl delete pods utils
 	
