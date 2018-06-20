@@ -48,7 +48,7 @@ CHANNEL_NAME=${CHANNEL_NAME:-channel1}
 #HLFV_IP_ADDRESS=${HLFV_IP_ADDRESS:-localhost}
 
 echo "Preparing yaml file for creating composer-card-import pod"
-sed -e "s/%CHANNEL_NAME%/${CHANNEL_NAME}/g" ${KUBECONFIG_FOLDER}/composer-card-import.yaml.base > ${KUBECONFIG_FOLDER}/composer-card-import.yaml.base
+sed -e "s/%CHANNEL_NAME%/${CHANNEL_NAME}/g" ${KUBECONFIG_FOLDER}/composer-card-import.yaml.base > ${KUBECONFIG_FOLDER}/composer-card-import.yaml
 #sed -e "s/%HLFV_IP_ADDRESS%/${HLFV_IP_ADDRESS}/g" ${KUBECONFIG_FOLDER}/composer-card-import.yaml.base2 > ${KUBECONFIG_FOLDER}/composer-card-import.yaml
 
 
