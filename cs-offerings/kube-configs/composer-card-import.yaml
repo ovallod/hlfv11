@@ -16,7 +16,7 @@ spec:
   - name: composer-card-import
     image: ibmblockchain/composer-cli:0.19.5
     imagePullPolicy: Always
-    command: ["sh", "-c", "echo $K8S_PROFILE > connection.json && composer card create -f PeerAdmin.card -p connection.json -u PeerAdmin -r PeerAdmin -r ChannelAdmin -c /shared/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/Admin@org1.example.com-cert.pem -k /shared/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/key.pem && composer card import -f PeerAdmin.card"]
+    command: ["sh", "-c", "echo $K8S_PROFILE > connection.json && composer card list && composer card delete -c PeerAdmin@hlfv1 && composer card create -f PeerAdmin.card -p connection.json -u PeerAdmin -r PeerAdmin -r ChannelAdmin -c /shared/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/Admin@org1.example.com-cert.pem -k /shared/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/key.pem && composer card import -f PeerAdmin.card"]
     env:
     - name: K8S_PROFILE
       value: >
@@ -39,7 +39,7 @@ spec:
               }
           },
           "channels": {
-              "channel1": {
+              "labchannel": {
                   "orderers": [
                       "orderer"
                   ],
@@ -66,18 +66,18 @@ spec:
           },
           "orderers": {
               "orderer": {
-                  "url": "grpc://159.122.178.146:31010"
+                  "url": "grpc://blockchain-orderer:31010"
               }
           },
           "peers": {
               "org1peer1": {
-                  "url": "grpc://159.122.178.146:30110",
-                  "eventUrl": "grpc://159.122.178.146:30111"
+                  "url": "grpc://blockchain-org1peer1:30110",
+                  "eventUrl": "grpc://blockchain-org1peer1:30111"
               }
           },
           "certificateAuthorities": {
               "CA1": {
-                  "url": "http://159.122.178.146:30054",
+                  "url": "http://blockchain-ca:30054",
                   "caName": "CA1"
               }
           }
