@@ -16,11 +16,11 @@ spec:
           claimName: composer-pvc
       containers:
       - name: composer-rest-server
-        image: ibmblockchain/composer-rest-server:0.19.5
+        image: hyperledger/composer-rest-server:0.19.5
         imagePullPolicy: Always
         env:
         - name: COMPOSER_CARD
-          value: admin@marble1-network
+          value: admin@marbles-network
         - name: COMPOSER_NAMESPACES
           value: never
         volumeMounts:

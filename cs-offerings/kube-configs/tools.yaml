@@ -20,7 +20,7 @@ spec:
       claimName: sampleconfig-pvc
   containers:
   - name: cryptogen
-    image: hyperledger/fabric-tools:x86_64-1.1.0
+    image: hyperledger/fabric-tools:x86_64-1.1.1
     imagePullPolicy: Always
     command: ["sh", "-c", "sleep 3600"]
     volumeMounts:
