@@ -5,10 +5,11 @@ if [ "${PWD##*/}" == "create" ]; then
 elif [ "${PWD##*/}" == "scripts" ]; then
     KUBECONFIG_FOLDER=${PWD}/../kube-configs
 else
-    echo "Please run the script from 'scripts' or 'scripts/create' folder"
+    echo "Please run the OV script from 'scripts' or 'scripts/create' folder"
 fi
 
 PAID=false
+
 
 Parse_Arguments() {
 	while [ $# -gt 0 ]; do
