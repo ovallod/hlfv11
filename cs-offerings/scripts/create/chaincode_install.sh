@@ -5,7 +5,7 @@ if [ "${PWD##*/}" == "create" ]; then
 elif [ "${PWD##*/}" == "scripts" ]; then
     KUBECONFIG_FOLDER=${PWD}/../kube-configs
 else
-    echo "Please run the script from 'scripts' or 'scripts/create' folder"
+    echo "Please  run the script from 'scripts' or 'scripts/create' folder"
 fi
 
 # Default to peer 1's address if not defined
